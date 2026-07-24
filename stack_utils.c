@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/23 23:55:39 by pauhenr2         ###   ########.fr       */
+/*   Created: 2026/07/23 23:47:27 by pauhenr2          #+#    #+#             */
+/*   Updated: 2026/07/23 23:54:55 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_node
+t_node	*new_node(int value)
 {
-	int				value;
-	struct s_node	*next;
-}					t_node;
+	t_node	*new_node;
 
-t_node	*new_node(int value);
-
-#endif
+	new_node = malloc(sizeof(t_node);
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->next = NULL;
+	return (new_node);
+}
