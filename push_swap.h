@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/23 23:55:39 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/07/24 10:06:05 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ typedef struct s_node
 }					t_node;
 
 t_node	*new_node(int value);
+void	stack_add_back(t_node **stack, t_node *new_node);
 
 #endif
