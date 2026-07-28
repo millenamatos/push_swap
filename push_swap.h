@@ -22,6 +22,12 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
+typedef struct s_stack
+{
+	t_node 		*top;
+	int			size;
+}	t_stack;
+
 t_node	*create_node(int value);
 void	stack_add_back(t_node **stack, t_node *new_node);
 void	parse_args(int argc, char **argv, t_node **stack);
