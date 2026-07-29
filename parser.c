@@ -6,13 +6,13 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/24 11:33:09 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/07/29 18:57:01 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	signal;
 	int	result;
@@ -35,12 +35,32 @@ int		ft_atoi(const char *str)
 	return (result * signal);
 }
 
+int	is_valid_number(char *arg)
+{
+	int	i;
+
+	i = 0;
+	if (arg[i] == '+' || arg[i] == '-')
+		i++;
+	if (arg[i] == '\0')
+		return (0);
+	while (arg[i])
+	{
+		if (arg[i] < '0' || arg[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void	parse_args(int argc, char **argv, t_node **stack)
 {
 	int		i;
 	int		val;
 	t_node	*new_node;
 
+	if (!is_valid_number(argc, argv))
+		return ;
 	i = 1;
 	while (i < argc)
 	{
