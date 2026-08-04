@@ -34,7 +34,7 @@ void ss(t_stack *stack_a, t_stack *stack_b)
     sb(stack_b);
 }
 
-void pa(t_stack *stack_a, t_stack *stack_b) 
+void pa(t_stack *stack_a, t_stack *stack_b)
 {
     t_node *temp;
 
