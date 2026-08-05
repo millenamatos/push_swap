@@ -64,7 +64,7 @@ void	free_error_exit(t_node **stack, char **split)
 	if (split)
 		free_split(split);
 	write(2, "Error\n", 6);
-	exit(42);
+	exit(1);
 }
 
 int	has_duplicate(t_node *stack, int val)

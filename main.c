@@ -13,24 +13,58 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+int sizelist(t_node *lista)
+{
+	int size;
+
+	size = 0;
+	while(lista)
+	{
+		size++;
+		lista = lista->next;
+	}
+	return (size);
+}
+
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
+	t_node	*tmp;
+	t_stack	*stack_b;
+	t_stack *stack_a;
+	t_node	*lista;
 	int		i;
 
 	if (argc < 2)
 		return (0);
 	stack_a = NULL;
+	stack_b = NULL;
+	lista = NULL;
 	i = 1;
 	while (i < argc)
 	{
-		parse_args(argv[i], &stack_a);
+		parse_args(argv[i], &lista);
 		i++;
 	}
-	while (stack_a)
+	tmp = lista;
+	while (tmp)
 	{
-		printf("%d\n", stack_a->value);
-		stack_a = stack_a->next;
+		printf("%d ", tmp->value);
+		tmp = tmp->next;
 	}
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
+	stack_a->top = lista;
+	stack_a->size = sizelist(lista);
+	selection_sort(stack_a, stack_b);
+	tmp = stack_a->top;
+	printf("\n");
+	while (tmp)
+	{
+		printf("%d ", tmp->value);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }

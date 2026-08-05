@@ -24,9 +24,9 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node	*top;
-	int		size;
-}	t_stack;
+	t_node		*top;
+	int			size;
+}					t_stack;
 
 /*   ------------STACK UTILS------------ */
 
@@ -54,5 +54,9 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
+
+/*   -------------ALGORITHMS------------ */
+
+void	selection_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
