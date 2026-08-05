@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 12:02:17 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 13:42:51 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,17 @@ void	free_error_exit(t_node **stack, char **split)
 	exit(42);
 }
 
+int	has_duplicate(t_node *stack, int val)
+{
+	while (stack)
+	{
+		if (stack->value == val)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
 void	parse_args(char *arg, t_node **stack)
 {
 	int		i;
@@ -85,7 +96,7 @@ void	parse_args(char *arg, t_node **stack)
 			free_error_exit(stack, split);
 		val = ft_atoi(split[i], &error);
 		new_node = create_node(val);
-		if (error || !new_node)
+		if (error || !new_node || has_duplicate(*stack, val))
 			free_error_exit(stack, split);
 		stack_add_back(stack, new_node);
 		i++;
