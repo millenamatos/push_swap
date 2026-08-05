@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/23 20:51:14 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/07/24 11:30:38 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/08/05 12:04:13 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
 	stack_utils.c \
-	parser.c
+	parser.c \
+	split.c
 
 OBJS = $(SRCS:.c=.o)
 

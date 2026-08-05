@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 17:13:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 09:56:18 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 12:10:50 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ static char	**ft_strcploc(char const *s, char **str, char c)
 			i++;
 		str[j] = ft_substr(s, start, i - start);
 		if (!str[j])
-			return (free_split(str));
+		{
+			free_split(str);
+			return (NULL);
+		}
 		j++;
 	}
 	str[j] = NULL;

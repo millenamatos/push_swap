@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 07:10:17 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 12:02:17 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ long	ft_atoi(const char *str, int *error)
 	signal = 1;
 	result = 0;
 	*error = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -59,22 +57,38 @@ int	is_valid_number(char *arg)
 	return (1);
 }
 
-void	parse_args(int argc, char **argv, t_node **stack)
+void	free_error_exit(t_node **stack, char **split)
+{
+	if (stack)
+		free_stack(stack);
+	if (split)
+		free_split(split);
+	write(2, "Error\n", 6);
+	exit(42);
+}
+
+void	parse_args(char *arg, t_node **stack)
 {
 	int		i;
 	int		val;
+	int		error;
+	char	**split;
 	t_node	*new_node;
 
-	if (!is_valid_number(argc, argv))
-		return ;
-	i = 1;
-	while (i < argc)
+	split = ft_split(arg, ' ');
+	if (!split || !split[0])
+		free_error_exit(stack, split);
+	i = 0;
+	while (split[i])
 	{
-		val = ft_atoi(argv[i]);
+		if (!is_valid_number(split[i]))
+			free_error_exit(stack, split);
+		val = ft_atoi(split[i], &error);
 		new_node = create_node(val);
-		if (!new_node)
-			return ;
+		if (error || !new_node)
+			free_error_exit(stack, split);
 		stack_add_back(stack, new_node);
 		i++;
 	}
+	free_split(split);
 }

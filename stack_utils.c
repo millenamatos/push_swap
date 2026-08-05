@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 23:47:27 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/24 10:45:30 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 10:12:53 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,21 @@ void	stack_add_back(t_node **stack, t_node *new_node)
 	last_node->next = new_node;
 }
 
-void push_to_stack(t_stack *stack, t_node *new_node)
+void	free_stack(t_node **stack)
+{
+	t_node	*temp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
+}
+
+void	push_to_stack(t_stack *stack, t_node *new_node)
 {
 	if (!stack || !new_node)
 		return ;
