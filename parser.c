@@ -6,19 +6,20 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/29 18:57:01 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 07:10:17 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str, int *error)
 {
-	int	signal;
-	int	result;
+	int		signal;
+	long	result;
 
 	signal = 1;
 	result = 0;
+	*error = 0;
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
 	if (*str == '+' || *str == '-')
@@ -30,6 +31,11 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + (*str - '0');
+		if ((result * signal) > 2147483647 || (result * signal) < -2147483648)
+		{
+			*error = 1;
+			return (0);
+		}
 		str++;
 	}
 	return (result * signal);
