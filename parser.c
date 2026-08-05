@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 13:42:51 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 14:49:32 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,10 @@ void	parse_args(char *arg, t_node **stack)
 		if (!is_valid_number(split[i]))
 			free_error_exit(stack, split);
 		val = ft_atoi(split[i], &error);
+		if (error || has_duplicate(*stack, val))
+			free_error_exit(stack, split);
 		new_node = create_node(val);
-		if (error || !new_node || has_duplicate(*stack, val))
+		if (!new_node)
 			free_error_exit(stack, split);
 		stack_add_back(stack, new_node);
 		i++;
