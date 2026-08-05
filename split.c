@@ -6,11 +6,26 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 17:13:34 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/29 18:54:02 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 09:21:24 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    free_split(char **split)
+{
+    int i;
+
+    if (!split)
+        return ;
+    i = 0;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
+}
 
 static size_t	ft_count_words(char const *s, char c)
 {
@@ -31,17 +46,6 @@ static size_t	ft_count_words(char const *s, char c)
 		s++;
 	}
 	return (i);
-}
-
-static char	**ft_free_matrix(char **str, size_t j)
-{
-	while (j > 0)
-	{
-		free(str[j - 1]);
-		j--;
-	}
-	free(str);
-	return (NULL);
 }
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -91,7 +95,7 @@ static char	**ft_strcploc(char const *s, char **str, char c)
 			i++;
 		str[j] = ft_substr(s, start, i - start);
 		if (!str[j])
-			return (ft_free_matrix(str, j));
+			return (free_split(str));
 		j++;
 	}
 	str[j] = NULL;

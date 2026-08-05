@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/07/24 11:33:45 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/05 09:28:00 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_node	*create_node(int value);
 void	stack_add_back(t_node **stack, t_node *new_node);
 void	parse_args(int argc, char **argv, t_node **stack);
 int		ft_atoi(const char *str);
+char	**split(char const *s, char c);
+void	free_split(char **split);
 void 	sa(t_stack *stack_a);
 void 	sb(t_stack *stack_b);
 void 	ss(t_stack *stack_a, t_stack *stack_b);
