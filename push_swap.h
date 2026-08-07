@@ -20,6 +20,7 @@ typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
+	int				index;
 }					t_node;
 
 typedef struct s_stack
