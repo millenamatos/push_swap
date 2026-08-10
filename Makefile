@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 #___________SOURCE FILES____________#
 
-SRCS = main.c \
+SRCS = main_teste.c \
 	stack_utils.c \
 	parser.c \
 	split.c \
@@ -26,7 +26,10 @@ SRCS = main.c \
 	push.c \
 	rotate.c \
 	rotate_reverse.c \
-	sort_simple.c
+	simple_sort.c \
+	medium_utils.c \
+	medium_utils_two.c \
+	medium_sort.c
 
 OBJS = $(SRCS:.c=.o)
 

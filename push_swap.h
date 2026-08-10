@@ -59,5 +59,15 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 /*   -------------ALGORITHMS------------ */
 
 void	selection_sort(t_stack *stack_a, t_stack *stack_b);
+void    organize_stack(t_stack *stack_a);
+int		find_position(t_stack *stack_a, int index);
+void    rotate_to_top(t_stack *stack_a, int index);
+int     has_chunk(t_stack *stack_a, int start, int end);
+int 	find_chunk_index(t_stack *stack_a, int start, int end);
+void    push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end);
+int		get_chunk_size(int size);
+void    sort_chunks(t_stack *stack_a, t_stack *stack_b);
+int		find_max_index(t_stack *stack_b);
+void    rotate_b_to_top(t_stack *stack_b, int index);
 
 #endif
