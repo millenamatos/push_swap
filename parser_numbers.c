@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_numbers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 14:49:32 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 17:48:28 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	has_duplicate(t_node *stack, int val)
 	return (0);
 }
 
-void	parse_args(char *arg, t_node **stack)
+void	parse_number(char *arg, t_node **stack)
 {
 	int		i;
 	int		val;

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 12:01:09 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 17:50:15 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_stack
 	int			size;
 }					t_stack;
 
+typedef struct s_config
+{
+	int	strategy;
+	int	bench;
+}	t_config;
+
 /*   ------------STACK UTILS------------ */
 
 t_node	*create_node(int value);
@@ -37,7 +43,8 @@ void	free_stack(t_node **stack);
 
 /*   ----------PARSING FUNCTIONS-------- */
 
-void	parse_args(char *arg, t_node **stack);
+int		parse_flag(char *arg, t_config config);
+void	parse_number(char *arg, t_node **stack);
 long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
 void	free_split(char **split);
