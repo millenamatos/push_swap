@@ -6,11 +6,19 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 23:47:27 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/05 10:12:53 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 19:12:23 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_stack(t_stack *stack)
+{
+	if (!stack)
+		return ;
+	stack->top = NULL;
+	stack->size = 0;
+}
 
 t_node	*create_node(int value)
 {

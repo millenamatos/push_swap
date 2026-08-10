@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 17:50:15 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 19:13:57 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_config
 
 /*   ------------STACK UTILS------------ */
 
+void	init_stack(t_stack *stack);
 t_node	*create_node(int value);
 void	stack_add_back(t_node **stack, t_node *new_node);
 void	free_stack(t_node **stack);
