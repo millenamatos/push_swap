@@ -21,7 +21,6 @@ typedef struct s_node
 	int				value;
 	int				index;
 	struct s_node	*next;
-	int				index;
 }					t_node;
 
 typedef struct s_stack
@@ -70,5 +69,6 @@ int		get_chunk_size(int size);
 void    sort_chunks(t_stack *stack_a, t_stack *stack_b);
 int		find_max_index(t_stack *stack_b);
 void    rotate_b_to_top(t_stack *stack_b, int index);
+void    push_back(t_stack *stack_a, t_stack *stack_b);
 
 #endif

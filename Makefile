@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 #___________SOURCE FILES____________#
 
-SRCS = main_teste.c \
+SRCS = main.c \
 	stack_utils.c \
 	parser.c \
 	split.c \
