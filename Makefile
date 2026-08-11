@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/23 20:51:14 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/08/10 23:48:24 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/08/11 19:49:55 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,12 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+#_____________FT_PRINTF_____________#
+
+PRINTF_DIR = ./ft_printf
+PRINTF = $(PRINTF_DIR)/libftprintf.a
+INCLUDES = -I. -I$(PRINTF_DIR)
+
 #___________SOURCE FILES____________#
 
 SRCS = main.c \
@@ -23,6 +29,7 @@ SRCS = main.c \
 	parser.c \
 	parser_numbers.c \
 	disorder.c \
+	bench.c \
 	split.c \
 	swap.c \
 	push.c \
@@ -37,18 +44,23 @@ OBJS = $(SRCS:.c=.o)
 
 #_______________RULES_______________#
 
-all: $(NAME)
+all: $(PRINTF) $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(PRINTF):
+	@make -C $(PRINTF_DIR)
+
+$(NAME): $(OBJS) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
+	@make -C $(PRINTF_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
+	@make -C $(PRINTF_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all

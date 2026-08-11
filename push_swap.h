@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/11 14:25:50 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/11 19:59:09 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf.h"
 
 typedef struct s_node
 {
@@ -63,6 +64,10 @@ long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
 void	free_split(char **split);
 void	free_error_exit(t_stack *stack, char **split);
+
+/*   -------------BENCH------------ */
+
+void	print_bench(t_config *config, double mess, char *strat, char *complx);
 
 /*   -------------OPERATIONS------------ */
 
