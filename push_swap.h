@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 23:47:48 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/11 14:25:50 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,18 @@ typedef struct s_config
 {
 	int	strategy;
 	int	bench;
+	int	count_sa;
+	int count_sb;
+	int count_ss;
+	int count_pa;
+	int count_pb;
+	int count_ra;
+	int count_rb;
+	int count_rr;
+	int count_rra;
+	int count_rrb;
+	int count_rrr;
+	int count_total; 
 }	t_config;
 
 /*   ------------STACK UTILS------------ */

@@ -6,11 +6,29 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 15:20:33 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 23:13:15 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/11 15:02:41 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_config(t_config *config)
+{
+	config->strategy = 0;
+	config->bench = 0;
+	config->count_sa = 0;
+	config->count_sb = 0;
+	config->count_ss = 0;
+	config->count_pa = 0;
+	config->count_pb = 0;
+	config->count_ra = 0;
+	config->count_rb = 0;
+	config->count_rr = 0;
+	config->count_rra = 0;
+	config->count_rrb = 0;
+	config->count_rrr = 0;
+	config->count_total = 0;
+}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -43,8 +61,7 @@ void	parse_args(int argc, char **argv, t_stack *stack, t_config *config)
 {
 	int	i;
 
-	config->strategy = 0;
-	config->bench = 0;
+	init_config(config);
 	i = 1;
 	while (i < argc)
 	{
