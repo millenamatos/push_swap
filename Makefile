@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/23 20:51:14 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/08/05 12:04:13 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/08/10 23:48:24 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
 	stack_utils.c \
 	parser.c \
+	parser_numbers.c \
+	disorder.c \
 	split.c \
 	swap.c \
 	push.c \

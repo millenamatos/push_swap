@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 23:15:36 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:47:48 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 /*   -------------ALGORITHMS------------ */
 
+double	compute_disorder(t_stack *stack_a);
 void	selection_sort(t_stack *stack_a, t_stack *stack_b);
 void    organize_stack(t_stack *stack_a);
 int		find_position(t_stack *stack_a, int index);
