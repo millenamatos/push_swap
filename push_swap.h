@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 19:13:57 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:15:36 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,18 @@ typedef struct s_config
 
 void	init_stack(t_stack *stack);
 t_node	*create_node(int value);
-void	stack_add_back(t_node **stack, t_node *new_node);
-void	free_stack(t_node **stack);
+void	stack_add_back(t_stack *stack, t_node *new_node);
+void	free_stack(t_stack *stack);
 
 /*   ----------PARSING FUNCTIONS-------- */
 
+void	parse_args(int argc, char **argv, t_stack *stack, t_config config);
 int		parse_flag(char *arg, t_config config);
-void	parse_number(char *arg, t_node **stack);
+void	parse_number(char *arg, t_stack *stack);
 long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
 void	free_split(char **split);
+void	free_error_exit(t_stack *stack, char **split);
 
 /*   -------------OPERATIONS------------ */
 

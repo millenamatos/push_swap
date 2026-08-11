@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 17:48:28 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 22:59:31 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	is_valid_number(char *arg)
 	return (1);
 }
 
-void	free_error_exit(t_node **stack, char **split)
+void	free_error_exit(t_stack *stack, char **split)
 {
 	if (stack)
 		free_stack(stack);
@@ -67,18 +67,23 @@ void	free_error_exit(t_node **stack, char **split)
 	exit(1);
 }
 
-int	has_duplicate(t_node *stack, int val)
+int	has_duplicate(t_stack *stack, int val)
 {
-	while (stack)
+	t_node *current;
+
+	if (!stack)
+		return (0);
+	current = stack->top;
+	while (current)
 	{
-		if (stack->value == val)
+		if (current->value == val)
 			return (1);
-		stack = stack->next;
+		current = current->next;
 	}
 	return (0);
 }
 
-void	parse_number(char *arg, t_node **stack)
+void	parse_number(char *arg, t_stack *stack)
 {
 	int		i;
 	int		val;
@@ -95,7 +100,7 @@ void	parse_number(char *arg, t_node **stack)
 		if (!is_valid_number(split[i]))
 			free_error_exit(stack, split);
 		val = ft_atoi(split[i], &error);
-		if (error || has_duplicate(*stack, val))
+		if (error || has_duplicate(stack, val))
 			free_error_exit(stack, split);
 		new_node = create_node(val);
 		if (!new_node)

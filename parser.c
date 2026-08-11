@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_flags.c                                     :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 15:20:33 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 18:08:24 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:13:15 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,25 @@ int	parse_flag(char *arg, t_config *config)
 	else
 		return (0);
 	return (1);
+}
+
+void	parse_args(int argc, char **argv, t_stack *stack, t_config *config)
+{
+	int	i;
+
+	config->strategy = 0;
+	config->bench = 0;
+	i = 1;
+	while (i < argc)
+	{
+		if (argv[i][0] == '-' && argv[i][1] == '-')
+		{
+			if (!parse_flag(argv[i], config))
+				free_error_exit(stack, NULL);
+		}
+		else
+			parse_number(argv[i], stack);
+		i++;
+	}
+
 }
