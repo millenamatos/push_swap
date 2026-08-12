@@ -48,7 +48,7 @@ void	stack_add_back(t_stack *stack, t_node *new_node)
 			last_node = last_node->next;
 		last_node->next = new_node;
 	}
-	stack-size++;
+	stack->size++;
 }
 
 void	free_stack(t_stack *stack)
@@ -66,7 +66,7 @@ void	free_stack(t_stack *stack)
 		current = temp;
 	}
 	stack->top = NULL;
-	size->size = 0;
+	stack->size = 0;
 }
 
 void	push_to_stack(t_stack *stack, t_node *new_node)
