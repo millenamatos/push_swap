@@ -6,19 +6,11 @@ void    organize_stack(t_stack *stack_a)
     t_node  *tmp;
     t_node  *min_node;
 
-    tmp = stack_a->top;
-    while (tmp)
-    {
-        tmp->index = -1;
-        tmp = tmp->next;
-    }
-
     i = 0;
     while(i < stack_a->size)
     {
         min_node = NULL;
         tmp = stack_a->top;
-
         while (tmp)
         {
             if (tmp->index == -1)
@@ -53,14 +45,22 @@ void    sort_chunks(t_stack *stack_a, t_stack *stack_b)
     }
 }
 
-void    push_back(t_stack *stack_a, t_stack *stack_b)
+void    push_back(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
     int max_index;
 
     while (stack_b->size > 0)
     {
-        max_index = find_max_index(stack_b);
+        max_index = stack_b->size - 1;
         rotate_b_to_top(stack_b, max_index);
-        pa(stack_a, stack_b);
+        pa(stack_a, stack_b, config);
     }
+}
+
+void    chunk_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
+{
+    organize_stack(stack_a);
+    sort_chunks(stack_a, stack_b);
+    push_back(stack_a, stack_b, config);
+
 }

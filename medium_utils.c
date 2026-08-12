@@ -4,21 +4,21 @@ int    get_chunk_size(int size)
 {
     int chunk_size;
 
-    chunk_size = 1;
+    chunk_size = 1; 
     while (chunk_size * chunk_size < size)
         chunk_size++;
     return (chunk_size);
 }
 
-void    push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end)
+void    push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end, t_config *config)
 {
     int index;
 
     while (has_chunk(stack_a, start, end))
     {
         index = find_chunk_index(stack_a, start, end);
-        rotate_to_top(stack_a, index);
-        pb(stack_a, stack_b);
+        rotate_to_top(stack_a, index, config);
+        pb(stack_a, stack_b, config);
     }
 }
 
@@ -50,7 +50,7 @@ int find_chunk_index(t_stack *stack_a, int start, int end)
     return (-1);
 }
 
-void    rotate_to_top(t_stack *stack_a, int index)
+void    rotate_to_top(t_stack *stack_a, int index, t_config *config)
 {
     int i;
     int position;
@@ -61,7 +61,7 @@ void    rotate_to_top(t_stack *stack_a, int index)
         i = 0;
         while (i < position)
         {
-            ra(stack_a);
+            ra(stack_a, config);
             i++;
         }
     }
@@ -70,7 +70,7 @@ void    rotate_to_top(t_stack *stack_a, int index)
         i = 0;
         while (i < stack_a->size - position)
         {
-            rra(stack_a);
+            rra(stack_a, config);
             i++;
         }
     }

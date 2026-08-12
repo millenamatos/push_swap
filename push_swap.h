@@ -95,7 +95,6 @@ int		find_chunk_index(t_stack *stack_a, int start, int end);
 void	push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end);
 int		get_chunk_size(int size);
 void	sort_chunks(t_stack *stack_a, t_stack *stack_b);
-int		find_max_index(t_stack *stack_b);
 void	rotate_b_to_top(t_stack *stack_b, int index);
 void	push_back(t_stack *stack_a, t_stack *stack_b);
 

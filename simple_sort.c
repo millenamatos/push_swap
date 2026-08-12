@@ -30,7 +30,7 @@ static	t_node	*find_min(t_stack *stack)
 	return (min_node);
 }
 
-void	selection_sort(t_stack *stack_a, t_stack *stack_b)
+void	selection_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
 	t_node	*min_node;
 
@@ -40,9 +40,9 @@ void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 	{
 		min_node = find_min(stack_a);
 		while (stack_a->top != min_node)
-			ra(stack_a);
-		pb(stack_a, stack_b);
+			ra(stack_a, config);
+		pb(stack_a, stack_b, config);
 	}
 	while (stack_b->size > 0)
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, config);
 }

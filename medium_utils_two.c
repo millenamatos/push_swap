@@ -18,23 +18,7 @@ int    find_position(t_stack *stack_a, int index)
     return (-1);
 }
 
-int		find_max_index(t_stack *stack_b)
-{
-	t_node *tmp;
-	int max;
-
-	tmp = stack_b->top;
-	max = -1;
-	while (tmp)
-	{
-		if (tmp->index > max)
-			max = tmp->index;
-		tmp = tmp->next;
-	}
-	return (max);
-}
-
-void    rotate_b_to_top(t_stack *stack_b, int index)
+void    rotate_b_to_top(t_stack *stack_b, int index, t_config *config)
 {
     int i;
     int position;
@@ -45,7 +29,7 @@ void    rotate_b_to_top(t_stack *stack_b, int index)
         i = 0;
         while (i < position)
         {
-            rb(stack_b);
+            rb(stack_b, config);
             i++;
         }
     }
@@ -54,7 +38,7 @@ void    rotate_b_to_top(t_stack *stack_b, int index)
         i = 0;
         while (i < stack_b->size - position)
         {
-            rrb(stack_b);
+            rrb(stack_b, config);
             i++;
         }
     }
