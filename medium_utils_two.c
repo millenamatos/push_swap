@@ -1,42 +1,21 @@
 #include "push_swap.h"
 
-void    push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end)
+int    find_position(t_stack *stack_a, int index)
 {
-    int index;
+    int     position;
+    t_node *tmp;
 
-    while (has_chunk(stack_a, start, end))
+    position = 0;
+    tmp = stack_a->top;
+
+    while (tmp)
     {
-        index = find_chunk_index(stack_a, start, end);
-        rotate_to_top(stack_a, index);
-        pb(stack_a, stack_b);
+        if (tmp->index == index)
+            return (position);
+        position++;
+        tmp = tmp->next;
     }
-}
-
-int    get_chunk_size(int size)
-{
-    if (size <= 100)
-        return (20);
-    return (45);
-}
-
-void    sort_chunks(t_stack *stack_a, t_stack *stack_b)
-{
-    int start;
-    int end;
-    int chunk_size;
-    int size;
-    
-    size = stack_a->size;
-    chunk_size = get_chunk_size(stack_a->size);
-    start = 0;
-    while (start < size)
-    {
-        end = start + chunk_size - 1;
-        if (end >= size)
-            end = size - 1;
-        push_chunk(stack_a, stack_b, start, end);
-        start = end + 1;
-    }
+    return (-1);
 }
 
 int		find_max_index(t_stack *stack_b)
@@ -76,7 +55,7 @@ void    rotate_b_to_top(t_stack *stack_b, int index)
         while (i < stack_b->size - position)
         {
             rrb(stack_b);
-            
+            i++;
         }
     }
 }
