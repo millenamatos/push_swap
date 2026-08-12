@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/11 19:59:09 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/11 23:16:49 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ typedef struct s_config
 	int	strategy;
 	int	bench;
 	int	count_sa;
-	int count_sb;
-	int count_ss;
-	int count_pa;
-	int count_pb;
-	int count_ra;
-	int count_rb;
-	int count_rr;
-	int count_rra;
-	int count_rrb;
-	int count_rrr;
-	int count_total; 
+	int	count_sb;
+	int	count_ss;
+	int	count_pa;
+	int	count_pb;
+	int	count_ra;
+	int	count_rb;
+	int	count_rr;
+	int	count_rra;
+	int	count_rrb;
+	int	count_rrr;
+	int	count_total;
 }	t_config;
 
 /*   ------------STACK UTILS------------ */
@@ -71,32 +71,32 @@ void	print_bench(t_config *config, double mess, char *strat, char *complx);
 
 /*   -------------OPERATIONS------------ */
 
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
-void	rra(t_stack *stack_a);
-void	rrb(t_stack *stack_b);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack_a, t_config *config);
+void	sb(t_stack *stack_b, t_config *config);
+void	ss(t_stack *stack_a, t_stack *stack_b, t_config *config);
+void	pa(t_stack *stack_a, t_stack *stack_b, t_config *config);
+void	pb(t_stack *stack_a, t_stack *stack_b, t_config *config);
+void	ra(t_stack *stack_a, t_config *config);
+void	rb(t_stack *stack_b, t_config *config);
+void	rr(t_stack *stack_a, t_stack *stack_b, t_config *config);
+void	rra(t_stack *stack_a, t_config *config);
+void	rrb(t_stack *stack_b, t_config *config);
+void	rrr(t_stack *stack_a, t_stack *stack_b, t_config *config);
 
 /*   -------------ALGORITHMS------------ */
 
 double	compute_disorder(t_stack *stack_a);
 void	selection_sort(t_stack *stack_a, t_stack *stack_b);
-void    organize_stack(t_stack *stack_a);
+void	organize_stack(t_stack *stack_a);
 int		find_position(t_stack *stack_a, int index);
-void    rotate_to_top(t_stack *stack_a, int index);
-int     has_chunk(t_stack *stack_a, int start, int end);
-int 	find_chunk_index(t_stack *stack_a, int start, int end);
-void    push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end);
+void	rotate_to_top(t_stack *stack_a, int index);
+int		has_chunk(t_stack *stack_a, int start, int end);
+int		find_chunk_index(t_stack *stack_a, int start, int end);
+void	push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end);
 int		get_chunk_size(int size);
-void    sort_chunks(t_stack *stack_a, t_stack *stack_b);
+void	sort_chunks(t_stack *stack_a, t_stack *stack_b);
 int		find_max_index(t_stack *stack_b);
-void    rotate_b_to_top(t_stack *stack_b, int index);
-void    push_back(t_stack *stack_a, t_stack *stack_b);
+void	rotate_b_to_top(t_stack *stack_b, int index);
+void	push_back(t_stack *stack_a, t_stack *stack_b);
 
 #endif
