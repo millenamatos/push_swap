@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 23:47:48 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/11 19:59:09 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf.h"
 
 typedef struct s_node
 {
@@ -33,6 +34,18 @@ typedef struct s_config
 {
 	int	strategy;
 	int	bench;
+	int	count_sa;
+	int count_sb;
+	int count_ss;
+	int count_pa;
+	int count_pb;
+	int count_ra;
+	int count_rb;
+	int count_rr;
+	int count_rra;
+	int count_rrb;
+	int count_rrr;
+	int count_total; 
 }	t_config;
 
 /*   ------------STACK UTILS------------ */
@@ -51,6 +64,10 @@ long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
 void	free_split(char **split);
 void	free_error_exit(t_stack *stack, char **split);
+
+/*   -------------BENCH------------ */
+
+void	print_bench(t_config *config, double mess, char *strat, char *complx);
 
 /*   -------------OPERATIONS------------ */
 
