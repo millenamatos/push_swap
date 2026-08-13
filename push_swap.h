@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/11 23:16:49 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/12 21:49:13 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf.h"
+
+# define STRATEGY_ADAPTIVE	0
+# define STRATEGY_SIMPLE	1
+# define STRATEGY_MEDIUM	2
+# define STRATEGY_COMPLEX	3
 
 typedef struct s_node
 {
@@ -64,6 +69,7 @@ long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
 void	free_split(char **split);
 void	free_error_exit(t_stack *stack, char **split);
+void	sort_stack(t_stack *a, t_stack *b, t_config *config, double disorder);
 
 /*   -------------BENCH------------ */
 

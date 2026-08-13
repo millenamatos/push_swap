@@ -6,7 +6,7 @@
 #    By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/23 20:51:14 by pauhenr2          #+#    #+#              #
-#    Updated: 2026/08/11 19:49:55 by pauhenr2         ###   ########.fr        #
+#    Updated: 2026/08/12 22:34:20 by pauhenr2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = main.c \
 	parser_numbers.c \
 	disorder.c \
 	bench.c \
+	sort_stack.c
 	split.c \
 	swap.c \
 	push.c \
