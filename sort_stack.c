@@ -28,5 +28,5 @@ void	sort_stack(t_stack *a, t_stack *b, t_config *config, double disorder)
 	else if (config->strategy == STRATEGY_MEDIUM)
 		chunk_sort(a, b, config);
 	else if (config->strategy == STRATEGY_COMPLEX)
-		radix_lsd_sort(a, b, config);
+		radix_sort(a, b, config);
 }

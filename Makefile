@@ -38,7 +38,6 @@ SRCS = main.c \
 	rotate_reverse.c \
 	simple_sort.c \
 	medium_utils.c \
-	medium_utils_two.c \
 	medium_sort.c \
 	complex_sort.c
 
