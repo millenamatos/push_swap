@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 16:42:47 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/12 22:32:13 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:03:31 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,24 @@ void	print_bench(t_config *config, double disorder)
 	if (!config || !config->bench)
 		return ;
 	print_disorder(disorder);
-	if (config->strategy == STRATEGY_SIMPLE)
-		ft_dprintf(2, "[bench] Strategy: Simple (O(n²))\n");
-	else if (config->strategy == STRATEGY_MEDIUM)
-		ft_dprintf(2, "[bench] Strategy: Medium (O(n√n))\n");
-	else if (config->strategy == STRATEGY_COMPLEX)
-		ft_dprintf(2, "[bench] Strategy: Complex (O(n log n))\n");
+	if (config->adaptive == 1)
+	{
+		ft_dprintf(2, "[bench] Strategy: Adaptive / ");
+		if (config->strategy == STRATEGY_SIMPLE)
+			ft_dprintf(2, "(O(n²))\n");
+		else if (config->strategy == STRATEGY_MEDIUM)
+			ft_dprintf(2, "(O(n√n))\n");
+		else if (config->strategy == STRATEGY_COMPLEX)
+			ft_dprintf(2, "(O(n log n))\n");
+	}
+	else
+	{
+		if (config->strategy == STRATEGY_SIMPLE)
+			ft_dprintf(2, "[bench] Strategy: Simple / (O(n²))\n");
+		else if (config->strategy == STRATEGY_MEDIUM)
+			ft_dprintf(2, "[bench] Strategy: Medium / (O(n√n))\n");
+		else if (config->strategy == STRATEGY_COMPLEX)
+			ft_dprintf(2, "[bench] Strategy: Complex / (O(n log n))\n");
+	}
 	print_ops_details(config);
 }

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/12 23:06:45 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:04:05 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_stack
 typedef struct s_config
 {
 	int	strategy;
+	int	adaptive;
 	int	bench;
 	int	count_sa;
 	int	count_sb;

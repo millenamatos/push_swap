@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 21:08:02 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/13 17:19:40 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:48:53 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,10 @@ void	sort_small(t_stack *a, t_stack *b, t_config *config)
 
 void	sort_stack(t_stack *a, t_stack *b, t_config *config, double disorder)
 {
-	if (a->size <= 5)
+	if (a->size <= 5 && (config->strategy == STRATEGY_ADAPTIVE
+			|| config->strategy == STRATEGY_SIMPLE))
 	{
-		config->strategy = STRATEGY_SMALL;
+		config->strategy = STRATEGY_SIMPLE;
 		sort_small(a, b, config);
 		return ;
 	}

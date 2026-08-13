@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 15:20:33 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/12 22:33:17 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:12:43 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	init_config(t_config *config)
 {
-	config->strategy = 0;
+	config->strategy = STRATEGY_ADAPTIVE;
+	config->adaptive = 0;
 	config->bench = 0;
 	config->count_sa = 0;
 	config->count_sb = 0;
@@ -43,7 +44,10 @@ int	ft_strcmp(const char *s1, const char *s2)
 int	parse_flag(char *arg, t_config *config)
 {
 	if (ft_strcmp(arg, "--adaptive") == 0)
+	{
 		config->strategy = STRATEGY_ADAPTIVE;
+		config->adaptive = 1;
+	}
 	else if (ft_strcmp(arg, "--simple") == 0)
 		config->strategy = STRATEGY_SIMPLE;
 	else if (ft_strcmp(arg, "--medium") == 0)
