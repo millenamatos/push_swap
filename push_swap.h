@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 18:07:28 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/12 21:49:13 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:06:45 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ typedef struct s_config
 /*   ------------STACK UTILS------------ */
 
 void	init_stack(t_stack *stack);
+void	init_config(t_config *config);
 t_node	*create_node(int value);
 void	stack_add_back(t_stack *stack, t_node *new_node);
 void	free_stack(t_stack *stack);
 
 /*   ----------PARSING FUNCTIONS-------- */
 
-void	parse_args(int argc, char **argv, t_stack *stack, t_config config);
-int		parse_flag(char *arg, t_config config);
+void	parse_args(int argc, char **argv, t_stack *stack, t_config *config);
+int		parse_flag(char *arg, t_config *config);
 void	parse_number(char *arg, t_stack *stack);
 long	ft_atoi(const char *str, int *error);
 char	**ft_split(char const *s, char c);
@@ -73,7 +74,7 @@ void	sort_stack(t_stack *a, t_stack *b, t_config *config, double disorder);
 
 /*   -------------BENCH------------ */
 
-void	print_bench(t_config *config, double mess, char *strat, char *complx);
+void	print_bench(t_config *config, double disorder);
 
 /*   -------------OPERATIONS------------ */
 
@@ -99,8 +100,9 @@ void	rotate_to_top(t_stack *stack_a, int index, t_config *config);
 int		has_chunk(t_stack *stack_a, int start, int end);
 int		find_chunk_index(t_stack *stack_a, int start, int end);
 void	push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end, t_config *config);
+void	chunk_sort(t_stack *stack_a, t_stack *stack_b, t_config *config);
 int		get_chunk_size(int size);
-void	sort_chunks(t_stack *stack_a, t_stack *stack_b);
+void	sort_chunks(t_stack *stack_a, t_stack *stack_b, t_config *config);
 void	rotate_b_to_top(t_stack *stack_b, int index, t_config *config);
 void	push_back(t_stack *stack_a, t_stack *stack_b, t_config *config);
 void    radix_lsd_sort(t_stack *stack_a, t_stack *stack_b, t_config *config);

@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 21:08:02 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/12 22:37:09 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/12 22:56:33 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sort_stack(t_stack *a, t_stack *b, t_config *config, double disorder)
 	if (config->strategy == STRATEGY_SIMPLE)
 		selection_sort(a, b, config);
 	else if (config->strategy == STRATEGY_MEDIUM)
-		chunck_sort(a, b, config);
+		chunk_sort(a, b, config);
 	else if (config->strategy == STRATEGY_COMPLEX)
-		complex_sort(a, b, config);
+		radix_lsd_sort(a, b, config);
 }

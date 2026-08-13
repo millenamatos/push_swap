@@ -25,7 +25,7 @@ void    organize_stack(t_stack *stack_a)
     }
 }
 
-void    sort_chunks(t_stack *stack_a, t_stack *stack_b)
+void    sort_chunks(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
     int start;
     int end;
@@ -40,7 +40,7 @@ void    sort_chunks(t_stack *stack_a, t_stack *stack_b)
         end = start + chunk_size - 1;
         if (end >= size)
             end = size - 1;
-        push_chunk(stack_a, stack_b, start, end);
+        push_chunk(stack_a, stack_b, start, end, config);
         start = end + 1;
     }
 }
@@ -52,7 +52,7 @@ void    push_back(t_stack *stack_a, t_stack *stack_b, t_config *config)
     while (stack_b->size > 0)
     {
         max_index = stack_b->size - 1;
-        rotate_b_to_top(stack_b, max_index);
+        rotate_b_to_top(stack_b, max_index, config);
         pa(stack_a, stack_b, config);
     }
 }
@@ -60,7 +60,7 @@ void    push_back(t_stack *stack_a, t_stack *stack_b, t_config *config)
 void    chunk_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
     organize_stack(stack_a);
-    sort_chunks(stack_a, stack_b);
+    sort_chunks(stack_a, stack_b, config);
     push_back(stack_a, stack_b, config);
 
 }
