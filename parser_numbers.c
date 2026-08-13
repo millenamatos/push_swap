@@ -6,7 +6,7 @@
 /*   By: pauhenr2 <pauhenr2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 10:35:54 by pauhenr2          #+#    #+#             */
-/*   Updated: 2026/08/10 22:59:31 by pauhenr2         ###   ########.fr       */
+/*   Updated: 2026/08/13 15:30:09 by pauhenr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	free_error_exit(t_stack *stack, char **split)
 
 int	has_duplicate(t_stack *stack, int val)
 {
-	t_node *current;
+	t_node	*current;
 
 	if (!stack)
 		return (0);
