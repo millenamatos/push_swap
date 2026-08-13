@@ -86,16 +86,17 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, t_config *config);
 /*   -------------ALGORITHMS------------ */
 
 double	compute_disorder(t_stack *stack_a);
-void	selection_sort(t_stack *stack_a, t_stack *stack_b);
+void	selection_sort(t_stack *stack_a, t_stack *stack_b, t_config *config);
 void	organize_stack(t_stack *stack_a);
 int		find_position(t_stack *stack_a, int index);
-void	rotate_to_top(t_stack *stack_a, int index);
+void	rotate_to_top(t_stack *stack_a, int index, t_config *config);
 int		has_chunk(t_stack *stack_a, int start, int end);
 int		find_chunk_index(t_stack *stack_a, int start, int end);
-void	push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end);
+void	push_chunk(t_stack *stack_a, t_stack *stack_b, int start, int end, t_config *config);
 int		get_chunk_size(int size);
 void	sort_chunks(t_stack *stack_a, t_stack *stack_b);
-void	rotate_b_to_top(t_stack *stack_b, int index);
-void	push_back(t_stack *stack_a, t_stack *stack_b);
+void	rotate_b_to_top(t_stack *stack_b, int index, t_config *config);
+void	push_back(t_stack *stack_a, t_stack *stack_b, t_config *config);
+void    radix_lsd_sort(t_stack *stack_a, t_stack *stack_b, t_config *config);
 
 #endif
