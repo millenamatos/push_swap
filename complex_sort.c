@@ -26,19 +26,19 @@ static	int	get_max_bits(t_stack *stack_a)
 
 void	radix_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
-	int	bit; //qual bit será analisado agora
+	int	bit;
 	int	i;
-	int	size; //qtd de elementos que estavam em A antes de começar a rodada
-	int	max_bits; //qtd de bits que precisa analisar
+	int	size;
+	int	max_bits;
 
 	organize_stack(stack_a);
 	max_bits = get_max_bits(stack_a);
 	bit = 0;
-	while (bit < max_bits) //enquanto ainda existirem bits para analisar
+	while (bit < max_bits)
 	{
-		size = stack_a->size; //guarda o tamanho atual de A
+		size = stack_a->size;
 		i = 0;
-		while (i < size) //analisa todos os elementos de A nesta rodada
+		while (i < size)
 		{
 			if (((stack_a->top->index >> bit) & 1) == 0)
 				pb(stack_a, stack_b, config);
